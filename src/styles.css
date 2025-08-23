@@ -50,30 +50,10 @@ ul {
   box-sizing: border-box;
 }
 
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 34px;
-}
-
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
-}
-
 .status {
   margin-bottom: 10px;
 }
+
 .game {
   display: flex;
   flex-direction: row;
@@ -98,6 +78,10 @@ ul {
 }
 
 .square {
+  border: 1px solid #99999952;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
   width: 100px;
   height: 100px;
   text-align: center;
@@ -113,9 +97,18 @@ ul {
   height: 100px;
   text-align: center;
   background-color: greenyellow;
-  border: 1px inset greenyellow;
-  box-shadow: 0 0 4px rgba(205, 236, 159, 0.794);
+  /* border: 1px inset greenyellow; */
+  box-sizing: border-box;
   color: #444;
+  border: 1px solid #fff5a6;
+  border-style: inset;
+  box-shadow: 
+    inset 0 0 4px rgba(205, 236, 159, 0.794), 
+    inset 0 0 20px 10px #e8ffc4ab, 
+          0 0 0px 2px #fff;
+  text-shadow: 
+    inset 0 0 1px black, 
+          0 0 4px white;
 }
 
 .moves-list-container {
@@ -127,4 +120,13 @@ li {
   padding: 20px;
   background-color: #444;
   color: white;
+}
+
+.list-item-btn {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  line-height: 2;
 }

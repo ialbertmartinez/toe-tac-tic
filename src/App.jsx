@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import './styles.css';
 // renders single button in board grid
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick, isWinning }) {
+  const winningSquareStyle = isWinning ? 'winning-square' : 'square';
+
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button 
+      className={`square ${winningSquareStyle}`} 
+      onClick={onSquareClick}>
       {value}
     </button>
   );
@@ -11,7 +15,9 @@ function Square({ value, onSquareClick }) {
 
 // renders the 3x3 game board
 function Board({ xIsNext, squares, onPlay }) {
-  const winner = calculateWinner(squares);
+  const winnerInfo = calculateWinner(squares);
+  const winner = winnerInfo ? winnerInfo.winner : null;
+  const winningLine = winnerInfo ? winnerInfo.line : [];
 
   function handleClick(i) {
     // checks for winner or if space is occupied    
@@ -45,6 +51,7 @@ function Board({ xIsNext, squares, onPlay }) {
             key={squareIndex}
             value={squares[squareIndex]}
             onSquareClick={() => handleClick(squareIndex)}
+            isWinning={winningLine.includes(squareIndex)}
           />
         );
       })}
@@ -133,7 +140,7 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return {winner: squares[a], line: [a, b, c]};
     }
   }
   return null;
