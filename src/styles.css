@@ -50,12 +50,6 @@ ul {
   box-sizing: border-box;
 }
 
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
-}
-
 .square {
   background: #fff;
   border: 1px solid #999;
@@ -87,4 +81,50 @@ body {
 
 .game-info {
   margin-left: 20px;
+}
+
+.spacer {
+  display: flex;
+ flex-flow: row nowrap;
+ column-gap: 40px;
+ margin: 80px auto;
+ width: 600px;
+}
+
+.board-row {
+  display: flex;
+  justify-content: initial;
+  gap: 4px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  background-color: #ddd;
+  margin-bottom: 4px;
+  font-size: 64px;
+  font-family: 'barlow', sans-serif;
+  font-weight: bold;
+}
+
+.winning-square {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  background-color: greenyellow;
+  border: 1px inset greenyellow;
+  box-shadow: 0 0 4px rgba(205, 236, 159, 0.794);
+  color: #444;
+}
+
+.moves-list-container {
+  margin-top: 20px;
+}
+
+li {
+  display: block;
+  padding: 20px;
+  background-color: #444;
+  color: white;
 }
