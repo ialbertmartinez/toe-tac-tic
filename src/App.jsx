@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import "./styles.css";
 // renders single button in board grid
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquareClick, isWinning }) {
 	return (
 		<button
-			className={`w-20 h-20 md:w-24 md:h-24 border border-gray-400 dark:border-gray-600 text-4xl font-bold flex items-center justify-center transition-colors duration-200 bg-white dark:bg-gray-700 text-gray-800 dark:text-white`}
+			className={`w-20 h-20 md:w-24 md:h-24 border border-gray-400 dark:border-gray-600 text-4xl font-bold flex items-center justify-center transition-colors duration-200 bg-white dark:bg-gray-700 text-gray-800 dark:text-white ${isWinning ? 'winning-square' : ''}`}
 			onClick={onSquareClick}>
 			{value}
 		</button>
