@@ -1,4 +1,4 @@
-* {
+/** {
   box-sizing: border-box;
 }
 
@@ -97,7 +97,7 @@ ul {
   height: 100px;
   text-align: center;
   background-color: greenyellow;
-  /* border: 1px inset greenyellow; */
+  /* border: 1px inset greenyellow; --------------
   box-sizing: border-box;
   color: #444;
   border: 1px solid #fff5a6;
@@ -130,3 +130,5 @@ li {
   min-width: 100%;
   line-height: 2;
 }
+
+*/
