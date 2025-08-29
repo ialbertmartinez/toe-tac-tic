@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./styles.css";
+import "./output.css";
 // renders single button in board grid
 function Square({ value, onSquareClick, isWinning }) {
 	return (
@@ -38,7 +38,7 @@ function Board({ xIsNext, squares, onPlay }) {
 		else {
 			status = 'Next player: ' + (xIsNext ? 'X' : 'O');
 		}
-
+	// create the board using loops
 	const boardSize = 3;
 	const boardRows = Array(boardSize).fill(null).map((_, rowIndex) => (
 		<div className="flex" key={rowIndex}>
@@ -57,12 +57,14 @@ function Board({ xIsNext, squares, onPlay }) {
 	));
 
 	return (
-		<>
-			<div className="text-xl font-semibold mb-4 text-center text-gray-800 dark:text-white">{status}</div>
-			<div className="board-contashadow-lg rounded-lg overflow-hidden">
+		<div>
+			<div className="text-xl font-semibold mb-4 text-center text-gray-800 dark:text-white">
+				{status}
+			</div>
+			<div className="shadow-lg rounded-lg overflow-hidden">
 				{boardRows}
 			</div>
-		</>
+		</div>
 	);
 }
 
@@ -109,20 +111,24 @@ export default function Game() {
 
 	const sortedMoves = isSortAscending ? moves : [...moves].reverse();
 
+	const sortedIcon = isSortAscending ? "https://github.com/ialbertmartinez/toe-tac-tic/blob/main/src/assets/i_sort_des.png" : "https://github.com/ialbertmartinez/toe-tac-tic/blob/main/src/assets/i_sort_asc.png";
+
 	return (
 		<>
 			<div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-4 flex items-center justify-center font-sans">
-				<div className="w-full max-w-4xl mx-auto flex flex-col lg:flex-row justify-center items-start gap-8">
+				<div className="w-full max-w-4xl mx-auto flex flex-col lg:flex-row justify-center items-center gap-8">
 					<div className="flex-shrink-0">
 						<Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
 					</div>
 					<div className="w-full lg:w-64 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
 						<h3 className="text-lg font-bold mb-4 text-gray-800 dark:text-white">Move History</h3>
+						<img src={isSortAscending ? "https://github.com/ialbertmartinez/toe-tac-tic/blob/main/src/assets/i_sort_des.png" : "https://github.com/ialbertmartinez/toe-tac-tic/blob/main/src/assets/i_sort_asc.png"} alt={isSortAscending ? "sort in descending order icon" : "sort in ascending order icon"}/>
 						<button 
 							onClick={() => setIsSortAscending(!isSortAscending)}
 							className="w-full mb-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200"	
 						>
-							Sort {isSortAscending ? 'Descending' : 'Ascending'}
+									
+						Sort {isSortAscending ? 'Descending' : 'Ascending'}						
 						</button>
 						<ul  className="list-none">{sortedMoves}</ul>
 					</div>

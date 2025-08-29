@@ -1,0 +1,15 @@
+.winning-square {
+  text-align: center;
+  background-color: greenyellow;
+  /* border: 1px inset greenyellow; */
+  box-sizing: border-box;
+  color: #444;
+  border: 1px solid #fff5a6;
+  border-style: inset;
+  box-shadow: 
+    inset 0 0 4px rgba(205, 236, 159, 0.794), 
+    inset 0 0 20px 10px #e8ffc4ab;
+  text-shadow: 
+    inset 0 0 1px black, 
+          0 0 4px white;
+}
