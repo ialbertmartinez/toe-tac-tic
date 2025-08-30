@@ -13,3 +13,17 @@
     inset 0 0 1px black, 
           0 0 4px white;
 }
+.icon {
+   display: inline-block;
+   max-width: 24px;
+   box-sizing: border-box;
+   margin-right: 10px;
+   vertical-align: middle;
+}
+.i-ascending {
+   content: url("./assets/i_sort_asc.png");
+}
+
+.i-descending { 
+   content:url("./assets/i_sort_des.png");
+}

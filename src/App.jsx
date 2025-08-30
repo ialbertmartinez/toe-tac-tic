@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./index.css"
 import "./output.css";
 // renders single button in board grid
 function Square({ value, onSquareClick, isWinning }) {
@@ -122,12 +123,12 @@ export default function Game() {
 					</div>
 					<div className="w-full lg:w-64 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
 						<h3 className="text-lg font-bold mb-4 text-gray-800 dark:text-white">Move History</h3>
-						<img src={isSortAscending ? "https://github.com/ialbertmartinez/toe-tac-tic/blob/main/src/assets/i_sort_des.png" : "https://github.com/ialbertmartinez/toe-tac-tic/blob/main/src/assets/i_sort_asc.png"} alt={isSortAscending ? "sort in descending order icon" : "sort in ascending order icon"}/>
+						<div ></div>
 						<button 
 							onClick={() => setIsSortAscending(!isSortAscending)}
 							className="w-full mb-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200"	
 						>
-									
+							<span className={`icon ${isSortAscending ? "i-descending" : "i-ascending"} me-[10px] align-middle max-w-[24px]`}></span>		
 						Sort {isSortAscending ? 'Descending' : 'Ascending'}						
 						</button>
 						<ul  className="list-none">{sortedMoves}</ul>
